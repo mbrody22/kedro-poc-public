@@ -12,6 +12,34 @@ Create Python environment
     python -m pip install --upgrade pip
     pip install -r src/requirements.txt
 
+## Repo Structure
+
+- **kedro-poc**
+  - **conf**
+    - **base**
+      - **parameters**
+         - **data_processing.yaml**: Config file that defines all parameters needed in the data processing pipeline (Ex: outcome column name)
+         - **data_science.yaml**: Config file that defines all parameters needed in the data science pipeline (Ex: model hyperparameters)
+         - **reporting.yaml**: Config file that defines all parameters needed in the reporting pipeline
+      - **catalog.yaml**: Config file that defines all the datasets called and created by nodes within this project
+  - **src**
+    - **kedro_poc**
+      - **pipelines**
+        - **data_processing**
+          - **nodes.py**: defines functions to perform data processing and feature engineering steps on the raw data
+          - **pipeline.py**: configures the entire data processing pipeline by chaining together nodes and defining their inputs and outputs
+        - **data_science**
+          - **nodes.py**: defines functions to split the processed modeling data, train an XGBoost model, and evaluate it
+          - **pipeline.py**: configures two versions of the model training pipeline by chaining together nodes and defining their inputs and outputs
+        - **reporting**
+          - **nodes.py**: defines functions to generate boxplots using two Kedro-compatible methods, Plotly Go and Plotly Express
+          - **pipeline.py**: defines the reporting pipeline which generates two boxplots
+      - **sqls**: directory containing SQL queries used to pull raw data from Vertica (most queries have been gitignored due to their sensitive nature)
+      - **extras**
+        - **utils**
+        - **datasets**
+          - **vertica_dataset.py**: extends the `AbstractDataSet` class to retrieve a SQL DataSet from a Vertica database
+            
 ## Local Development
 
 - Create a `local` directory within the `conf` directory
@@ -21,9 +49,10 @@ Create Python environment
 ```
 prod_vertica_cred:
     server: aws_prod
-    user: ${BOBI_USER_PROD}
-    password: ${BOBI_PASS_PROD}
+    user: ${USERNAME}
+    password: ${PASSWORDD}
 ```
+
 
 ## Data Processing
 
