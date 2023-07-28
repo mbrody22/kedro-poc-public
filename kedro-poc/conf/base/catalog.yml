@@ -1,0 +1,117 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://docs.kedro.org/en/stable/data/data_catalog.html
+
+demographics:
+  type: kedro_poc.extras.datasets.vertica_dataset.VerticaSQLQueryDataSet
+  credentials: prod_vertica_cred
+  filepath: src/kedro_poc/sqls/client_demo.sql
+
+fp_client:
+  type: kedro_poc.extras.datasets.vertica_dataset.VerticaSQLQueryDataSet
+  credentials: prod_vertica_cred
+  filepath: src/kedro_poc/sqls/fpas.sql
+
+perm:
+  type: kedro_poc.extras.datasets.vertica_dataset.VerticaSQLQueryDataSet
+  credentials: prod_vertica_cred
+  filepath: src/kedro_poc/sqls/perm.sql
+
+term:
+  type: kedro_poc.extras.datasets.vertica_dataset.VerticaSQLQueryDataSet
+  credentials: prod_vertica_cred
+  filepath: src/kedro_poc/sqls/term.sql
+
+ntl:
+  type: kedro_poc.extras.datasets.vertica_dataset.VerticaSQLQueryDataSet
+  credentials: prod_vertica_cred
+  filepath: src/kedro_poc/sqls/ntl.sql
+
+fa:
+  type: kedro_poc.extras.datasets.vertica_dataset.VerticaSQLQueryDataSet
+  credentials: prod_vertica_cred
+  filepath: src/kedro_poc/sqls/fa.sql
+
+va:
+  type: kedro_poc.extras.datasets.vertica_dataset.VerticaSQLQueryDataSet
+  credentials: prod_vertica_cred
+  filepath: src/kedro_poc/sqls/va.sql
+
+di:
+  type: kedro_poc.extras.datasets.vertica_dataset.VerticaSQLQueryDataSet
+  credentials: prod_vertica_cred
+  filepath: src/kedro_poc/sqls/di.sql
+
+riders:
+  type: kedro_poc.extras.datasets.vertica_dataset.VerticaSQLQueryDataSet
+  credentials: prod_vertica_cred
+  filepath: src/kedro_poc/sqls/riders.sql
+
+inv:
+  type: kedro_poc.extras.datasets.vertica_dataset.VerticaSQLQueryDataSet
+  credentials: prod_vertica_cred
+  filepath: src/kedro_poc/sqls/inv.sql
+
+idm:
+  type: kedro_poc.extras.datasets.vertica_dataset.VerticaSQLQueryDataSet
+  credentials: prod_vertica_cred
+  filepath: src/kedro_poc/sqls/idm.sql
+
+zipincome:
+  type: kedro_poc.extras.datasets.vertica_dataset.VerticaSQLQueryDataSet
+  credentials: prod_vertica_cred
+  filepath: src/kedro_poc/sqls/zipincome.sql
+
+# Data to be saved after processing nodes
+model_data:
+  type: pandas.CSVDataSet
+  filepath: data/04_features/model_data.csv
+
+permdata:
+  type: pandas.CSVDataSet
+  filepath: data/03_primary/permdata.csv
+
+termdata:
+  type: pandas.CSVDataSet
+  filepath: data/03_primary/termdata.csv
+
+ntldata:
+  type: pandas.CSVDataSet
+  filepath: data/03_primary/ntldata.csv
+
+didata:
+  type: pandas.CSVDataSet
+  filepath: data/03_primary/didata.csv
+
+fadata:
+  type: pandas.CSVDataSet
+  filepath: data/03_primary/fadata.csv
+
+vadata:
+  type: pandas.CSVDataSet
+  filepath: data/03_primary/vadata.csv
+
+client:
+  type: pandas.CSVDataSet
+  filepath: data/03_primary/client.csv
+
+# Plot DataSets
+age_plot_go:
+  type: plotly.JSONDataSet
+  filepath: data/06_reporting/age_plot.json
+  versioned: true
+
+age_plot_px:
+  type: plotly.PlotlyDataSet
+  filepath: data/06_reporting/age_plot_exp.json
+  versioned: true
+  plotly_args:
+    type: box
+    fig:
+      x: target
+      y: age
+    layout:
+      xaxis_title: Purchased DI
+      yaxis_title: Age
+      title: Client Age by DI Ownership Status

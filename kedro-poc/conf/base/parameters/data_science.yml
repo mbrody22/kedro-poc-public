@@ -1,0 +1,95 @@
+model_version_1:
+  model_options:
+    model_name: Version 1
+    train_size: 0.6
+    val_size: 0.2
+    test_size: 0.2
+    random_state: 3
+    max_depth: 6
+    nrounds: 100
+    eta: 0.1
+    gamma: 4
+    min_child_weight: 1
+    colsample_bytree: 0.6
+    objective: binary:logistic
+    eval_metric: auc
+    features:
+      - zip_income
+      - age
+      - client_years
+      - recent_purchase
+      - fp_client
+      - term_rider_wp
+      - term_prod_ecp
+      - term_face_amount
+      - term_premium
+      - term_risk
+      - perm_rider_wp
+      - perm_rider_gir
+      - perm_rider_rtr1
+      - perm_rider_alir
+      - perm_rider_lisr
+      - perm_face_amount
+      - perm_premium
+      - perm_risk
+      - ntl_rider_wsp
+      - ntl_rider_wmc
+      - ntl_face_amount
+      - ntl_premium
+      - ntl_risk
+      - fa_init_pay
+      - va_single_prem
+      - va_init_pay
+      - va_prod
+      - perm_prod
+      - term_prod
+      - fa_prod
+      - ntl_prod
+
+model_version_2:
+  model_options:
+    model_name: Version 2
+    train_size: 0.6
+    val_size: 0.2
+    test_size: 0.2
+    random_state: 3
+    max_depth: 3
+    nrounds: 150
+    eta: 0.05
+    gamma: 6
+    min_child_weight: 2
+    colsample_bytree: 0.5
+    objective: binary:logistic
+    eval_metric: auc
+    features:
+      - zip_income
+      - age
+      - client_years
+      - recent_purchase
+      - fp_client
+      - term_rider_wp
+      - term_prod_ecp
+      - term_face_amount
+      - term_premium
+      - term_risk
+      - perm_rider_wp
+      - perm_rider_gir
+      - perm_rider_rtr1
+      - perm_rider_alir
+      - perm_rider_lisr
+      - perm_face_amount
+      - perm_premium
+      - perm_risk
+      - ntl_rider_wsp
+      - ntl_rider_wmc
+      - ntl_face_amount
+      - ntl_premium
+      - ntl_risk
+      - fa_init_pay
+      - va_single_prem
+      - va_init_pay
+      - va_prod
+      - perm_prod
+      - term_prod
+      - fa_prod
+      - ntl_prod

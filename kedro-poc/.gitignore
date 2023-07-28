@@ -1,0 +1,338 @@
+# MM Data Science base .gitignore file
+
+# WARNING: this gitignore file uses a "whitelist" approach in
+# which all files are ignored by default. Specific files and
+# file types are then whitelisted for inclusion in the repository.
+# The whitelist approach is *required* by Data Science's security team.
+#
+# For security & privacy reasons, Data Science requires that:
+#
+# 1. No files containing passwords or similar secrets exist in
+#    any repository synced with GitHub, GitLab, etc.
+#    EVEN IF GIT-IGNORED, THIS IS NOT PERMITTED.
+# 2. All whitelisted files must contain no secrets or personally
+#    identifiable information (PII), such as social security numbers,
+#    policy numbers, etc.
+#
+# Whitelisting new file types requires manager approval.
+#
+# For more information, see:
+# https://massmutual.atlassian.net/wiki/spaces/DSSE/pages/1227849947/Best+Practices+for+Protecting+Secrets
+# https://massmutual.atlassian.net/wiki/spaces/AAP/pages/1239779093/Required+Steps+to+Open+GitHub
+
+
+# Ignore everything by default.
+# REMOVING OR COMMENTING OUT THE LINE BELOW IS FORBIDDEN
+# IN ALL CIRCUMSTANCES.
+*
+
+# Permit whitelisted file extensions in all directories.
+# OPTIONAL: for added security, you may replace this whitelist
+# with targeted directory whitelists. To do this, add the lines
+# !$FOO/
+# !$FOO/**/
+# for each directory $FOO you wish to whitelist.
+# If you do not understand what this means or are not confident
+# in making such a change, then DO NOT modify the line below.
+!/**/
+
+# Permit ignore files.
+!.dockerignore
+!.gitattributes
+!.gitignore
+!.helmignore
+
+# Permit these file extensions.
+
+## TeX & LaTeX
+!*.bib
+!*.bst
+!*.cls
+!*.sty
+!*.tex
+
+## Source code files
+!*.c
+!*.cpp
+!*.css
+!*.java
+!*.jl
+!*.js
+!*.pl
+!*.py
+!*.sh
+#!*.sql
+!*.[Rr]
+
+## images
+!*.jpg
+!*.png
+
+## Config (YAML, TOML)
+!*.toml
+!*.yaml
+!*.yml
+
+## Markdown and ReStructured Text documentation
+!*.md
+!*.rst
+
+## RStudio & R Markdown
+!*.Rmd
+!*.Rproj
+
+# Permit these specific files.
+
+## Make
+!Makefile
+
+## Docker
+!Dockerfile*
+
+## Jenkins
+!Jenkinsfile
+
+## Kubernetes
+!*.tpl
+!CODEOWNERS
+!NOTES.txt
+!OWNERS*
+!README*
+
+## Python
+!pytest.ini
+!requirements*.in
+!requirements*.txt
+
+## Python packaging files
+!MANIFEST.in
+!setup.cfg
+!tox*.ini
+
+## R
+!*.Rd
+!.Rbuildignore
+!DESCRIPTION
+!NAMESPACE
+
+## R package version control
+!manifest.json
+!packrat.lock
+!packrat.opts
+!renv.lock
+
+## other project-specific whitelist files
+# Example: CSV with no secrets or PII used as synthetic data or for config.
+# WARNINGS:
+# - By adding a whitelist file, you are certifying that the file
+#   contains no secrets or personally identifiable information, and you will
+#   be held responsible for any breaches that result.
+# - Do not whitelist with wildcards except with manager permission.
+# - Do not whitelist Jupyter notebooks (.ipynb) or similar embedded-data files.
+!.slackSettings
+!LICENSE
+!mm-cert-bundle.pem.unix
+!vsql
+!zipincome.sql
+
+# Ignore these files, even if previous patterns would otherwise permit them.
+*[Cc][Rr][Ee][Dd][Ee][Nn][Tt][Ii][Aa][Ll]*
+*[Pp][Rr][Ii][Vv][Aa][Tt][Ee]*
+*[Ss][Ee][Cc][Rr][Ee][Tt]*
+# user-configurable filename in set-aws-credentials, will likely have `.ini` suffix
+*[Vv][Ee][Rr][Tt][Ii][Cc][Aa]*.ini
+.python-version
+
+# Presumed sensitive-data directories: must be ignored, but only at the repo root level
+# (i.e. src/data, src/models is not ignored by this pattern)
+/data/
+/models/
+/references/
+/reports/
+
+# NOTE:
+# Each active contributor must certify that they will never store PII
+# outside of the directories listed above
+# (i.e., the presumed directories + your personal additions).
+# To do this, write your name and the date below the following line:
+# "I will never store PII outside of the above PII-permitted directories."
+#
+# * Maya Brody: 2023-05-23
+
+# Additional git-ignores based on common nuisance and personal directories and files,
+# but are not strictly necessary for security, and are offered as suggestions.
+# Ignore these directories and their contents, even if previous patterns
+# would otherwise permit them.
+*.egg-info/
+.aws/
+.cache/
+.coverage/
+.eggs/
+.env/
+.hypothesis/
+.idea/
+.ipynb_checkpoints/
+.mypy_cache/
+.pytest_cache/
+.Python/
+.ropeproject/
+.Rproj.user/
+.sass-cache/
+.scrapy/
+.spyderproject/
+.spyproject/
+.terraform/
+.tox/
+.venv/
+.vscode/
+.webassets-cache/
+artifact/
+
+# Distribution / packaging (from kedro)
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ignore all local configuration
+conf/local/**
+!conf/local/.gitkeep
+.telemetry
+
+# ignore potentially sensitive credentials files
+conf/**/*credentials*
+
+# ignore everything in the following folders
+data/**
+logs/**
+
+# except their sub-folders
+!data/**/
+!logs/**/
+
+# also keep the example dataset
+!data/01_raw/iris.csv
+
+##########################
+# Common files
+
+# IntelliJ
+.idea/
+*.iml
+out/
+.idea_modules/
+
+### macOS
+*.DS_Store
+.AppleDouble
+.LSOverride
+.Trashes
+
+# Vim
+*~
+.*.swo
+.*.swp
+
+# emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# C extensions
+*.so
+
+### Python template
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+.static_storage/
+.media/
+local_settings.py
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+.ipython/profile_default/history.sqlite
+.ipython/profile_default/startup/README
+
+# celery beat schedule file
+celerybeat-schedule
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.envrc
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+
