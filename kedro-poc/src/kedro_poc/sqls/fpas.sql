@@ -1,0 +1,1 @@
+select * from lead_source.fpas_clients

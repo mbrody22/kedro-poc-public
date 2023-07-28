@@ -61,7 +61,7 @@
 !*.pl
 !*.py
 !*.sh
-#!*.sql
+!*.sql
 !*.[Rr]
 
 ## images
@@ -133,7 +133,7 @@
 !LICENSE
 !mm-cert-bundle.pem.unix
 !vsql
-!zipincome.sql
+
 
 # Ignore these files, even if previous patterns would otherwise permit them.
 *[Cc][Rr][Ee][Dd][Ee][Nn][Tt][Ii][Aa][Ll]*
@@ -149,6 +149,19 @@
 /models/
 /references/
 /reports/
+
+# Sensitive Queries to be omitted
+client_demo.sql
+di.sql
+fa.sql
+va.sql
+underwriting.sql
+term.sql
+perm.sql
+ntl.sql
+inv.sql
+idm.sql
+riders.sql
 
 # NOTE:
 # Each active contributor must certify that they will never store PII
