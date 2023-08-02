@@ -1,25 +1,8 @@
-# MM Data Science base .gitignore file
 
 # WARNING: this gitignore file uses a "whitelist" approach in
 # which all files are ignored by default. Specific files and
 # file types are then whitelisted for inclusion in the repository.
-# The whitelist approach is *required* by Data Science's security team.
-#
-# For security & privacy reasons, Data Science requires that:
-#
-# 1. No files containing passwords or similar secrets exist in
-#    any repository synced with GitHub, GitLab, etc.
-#    EVEN IF GIT-IGNORED, THIS IS NOT PERMITTED.
-# 2. All whitelisted files must contain no secrets or personally
-#    identifiable information (PII), such as social security numbers,
-#    policy numbers, etc.
-#
-# Whitelisting new file types requires manager approval.
-#
-# For more information, see:
-# https://massmutual.atlassian.net/wiki/spaces/DSSE/pages/1227849947/Best+Practices+for+Protecting+Secrets
-# https://massmutual.atlassian.net/wiki/spaces/AAP/pages/1239779093/Required+Steps+to+Open+GitHub
-
+# The whitelist approach is *required*.
 
 # Ignore everything by default.
 # REMOVING OR COMMENTING OUT THE LINE BELOW IS FORBIDDEN
@@ -131,7 +114,6 @@
 # - Do not whitelist Jupyter notebooks (.ipynb) or similar embedded-data files.
 !.slackSettings
 !LICENSE
-!mm-cert-bundle.pem.unix
 !vsql
 
 
